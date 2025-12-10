@@ -1,0 +1,91 @@
+:root{
+  --accent: #6b21a8; /* ungu elegan */
+  --muted: #6b7280;
+  --bg-image: url('img/bg');
+  --glass: rgba(255,255,255,0.07);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background-image: linear-gradient(120deg, rgba(107,33,168,0.06), rgba(99,102,241,0.04)), var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  -webkit-font-smoothing:antialiased;
+  color:#0f172a;
+  animation:floatBG 18s ease-in-out infinite;
+}
+
+/* ABOUT ME SECTION */
+.about{
+  background: rgba(255,255,255,0.85);
+  padding: 24px;
+  border-radius: 16px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+  animation: fadeInUp .6s ease forwards;
+}
+.about h2{
+  margin-top:0;
+  color: var(--accent);
+  font-size: 22px;
+}
+.about p{
+  margin: 10px 0 0;
+  line-height: 1.6;
+  color: #334155;
+  font-size: 16px;
+}
+
+
+/* HEADER TABLE STICKY */
+.top-table{position:sticky;top:0;z-index:40;backdrop-filter: blur(6px);}
+.top-table table{width:100%;border-collapse:collapse;background:linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));box-shadow:0 4px 24px rgba(15,23,42,0.06)}
+.top-table td{padding:10px 16px;vertical-align:middle}
+.top-table .brand{font-weight:700;color:var(--accent)}
+.top-table input{padding:6px 8px;border-radius:6px;border:1px solid rgba(15,23,42,0.06);margin-right:6px}
+.top-table button{padding:8px 12px;border-radius:8px;border:none;background:var(--accent);color:white;cursor:pointer}
+
+.container{max-width:1100px;margin:40px auto;padding:24px}
+
+.hero{display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:start}
+.profile-card{background:rgba(255,255,255,0.86);padding:22px;border-radius:16px;box-shadow:0 10px 30px rgba(15,23,42,0.06);text-align:center}
+.avatar-wrap{width:150px;height:150px;margin:0 auto 12px;border-radius:999px;overflow:hidden;border:6px solid rgba(255,255,255,0.6)}
+.avatar{width:140px;height:140px;object-fit:cover;border-radius:999px;display:block;transition:transform .35s ease}
+.avatar:hover{transform:scale(1.04) rotate(-1deg)}
+.greeting{margin:0;font-size:20px;font-weight:700}
+.greeting span{color:var(--accent)}
+.tagline{color:var(--muted);margin-top:6px}
+
+.info-card{background:var(--glass);padding:18px;border-radius:12px}
+.info-table{width:100%;border-collapse:collapse}
+.info-table th{padding:8px 10px;font-size:16px;text-align:left}
+.info-table td{padding:10px;border-top:1px solid rgba(15,23,42,0.04)}
+
+.works{margin-top:40px}
+.works-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.work-card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(15,23,42,0.06);transition:transform .28s ease, box-shadow .28s ease}
+.work-card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(15,23,42,0.12)}
+.work-card img{width:100%;height:180px;object-fit:cover}
+.work-card figcaption{padding:12px}
+.work-card .desc{color:var(--muted);font-size:14px;margin:0}
+
+.site-footer{text-align:center;margin-top:40px;color:var(--muted)}
+
+/* ANIMASI */
+@keyframes floatBG{0%{background-position:0 0}50%{background-position:20% 10%}100%{background-position:0 0}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.animate-appear{opacity:0}
+.animate-appear.in{animation:fadeInUp .6s ease forwards}
+
+@keyframes cardPop{from{opacity:0;transform:scale(.98) translateY(10px)}to{opacity:1;transform:none}}
+.animate-card{opacity:0}
+.animate-card.in{animation:cardPop .45s cubic-bezier(.2,.9,.2,1) forwards}
+
+@media (max-width:880px){
+  .hero{grid-template-columns:1fr;}
+  .top-table .controls{display:none}
+}
